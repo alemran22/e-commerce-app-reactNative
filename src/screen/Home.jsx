@@ -1,9 +1,13 @@
-import { StyleSheet, Text, TextInput, View } from "react-native";
-import React from "react";
+import { FlatList, StyleSheet, Text, TextInput, View } from "react-native";
+import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import Header from "../components/Header";
 import Fontisto from "react-native-vector-icons/Fontisto";
+import Category from "../components/Category";
+
+const categories = ["Trending Now", "All", "New", "Men's", "Women's"];
 const Home = () => {
+  const [selectedCategory, setSelectedCategory] = useState("Trending Now");
   return (
     <LinearGradient colors={["#FDF0F3", "#FFFBFC"]} style={styles.container}>
       <Header />
@@ -14,6 +18,20 @@ const Home = () => {
         </View>
         <TextInput style={styles.input} placeholder="Search" />
       </View>
+      <FlatList
+        data={categories}
+        renderItem={({ item }) => (
+          <Category
+            item={item}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+          />
+        )}
+        keyExtractor={(item) => item}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+      />
+      <Category />
     </LinearGradient>
   );
 };
