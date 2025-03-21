@@ -4,34 +4,58 @@ import { LinearGradient } from "expo-linear-gradient";
 import Header from "../components/Header";
 import Fontisto from "react-native-vector-icons/Fontisto";
 import Category from "../components/Category";
+import ProductCard from "../components/ProductCard";
 
 const categories = ["Trending Now", "All", "New", "Men's", "Women's"];
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState("Trending Now");
+  const [isLiked, setIsLiked] = useState(false);
   return (
     <LinearGradient colors={["#FDF0F3", "#FFFBFC"]} style={styles.container}>
+      {/* header */}
       <Header />
-      <Text style={styles.headerText}>Match Your Style</Text>
-      <View style={styles.inputContainer}>
-        <View style={styles.iconContainer}>
-          <Fontisto name="search" size={20} color={"#C0C0C0"} />
-        </View>
-        <TextInput style={styles.input} placeholder="Search" />
+
+      {/* products list */}
+      <View style={styles.productList}>
+        {/* <ProductCard />
+        <ProductCard />
+        <ProductCard /> */}
       </View>
       <FlatList
-        data={categories}
-        renderItem={({ item }) => (
-          <Category
-            item={item}
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-          />
+        ListHeaderComponent={
+          <>
+            <Text style={styles.headerText}>Match Your Style</Text>
+            {/* input container */}
+            <View style={styles.inputContainer}>
+              <View style={styles.iconContainer}>
+                <Fontisto name="search" size={20} color={"#C0C0C0"} />
+              </View>
+              <TextInput style={styles.input} placeholder="Search" />
+            </View>
+            {/* category tags */}
+            <FlatList
+              data={categories}
+              renderItem={({ item }) => (
+                <Category
+                  item={item}
+                  selectedCategory={selectedCategory}
+                  setSelectedCategory={setSelectedCategory}
+                />
+              )}
+              keyExtractor={(item) => item}
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+            />
+          </>
+        }
+        data={[1, 2, 3, 4, 5, 6]}
+        renderItem={({ item, index }) => (
+          <ProductCard item={item} isLiked={isLiked} setIsLiked={setIsLiked} />
         )}
-        keyExtractor={(item) => item}
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
+        numColumns={2}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 150 }}
       />
-      <Category />
     </LinearGradient>
   );
 };
@@ -40,7 +64,6 @@ export default Home;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: 20,
   },
   buttonText: { fontSize: 18 },
@@ -60,4 +83,5 @@ const styles = StyleSheet.create({
   },
   iconContainer: { marginHorizontal: 15 },
   input: { flex: 1 },
+  productList: { flexDirection: "row", justifyContent: "space-between" },
 });
