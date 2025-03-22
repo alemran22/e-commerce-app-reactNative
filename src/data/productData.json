@@ -1,0 +1,124 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "image": "https://images.unsplash.com/photo-1594633314669-8c855a2e97a5",
+      "price": 39.99,
+      "title": "Stylish Jacket"
+    },
+    {
+      "id": 2,
+      "image": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2",
+      "price": 24.99,
+      "title": "Classic Sunglass"
+    },
+    {
+      "id": 3,
+      "image": "https://images.unsplash.com/photo-1559599239-9ebf6cb4a3e8",
+      "price": 59.99,
+      "title": "Leather Handbag"
+    },
+    {
+      "id": 4,
+      "image": "https://images.unsplash.com/photo-1618354691564-1f7b02dc506f",
+      "price": 49.99,
+      "title": "Luxury Wristwatch"
+    },
+    {
+      "id": 5,
+      "image": "https://images.unsplash.com/photo-1521247560470-94a1d4186192",
+      "price": 29.99,
+      "title": "Elegant Heels"
+    },
+    {
+      "id": 6,
+      "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+      "price": 34.99,
+      "title": "Trendy Sneakers"
+    },
+    {
+      "id": 7,
+      "image": "https://images.unsplash.com/photo-1585759071423-268627a97a12",
+      "price": 44.99,
+      "title": "Casual Hoodie"
+    },
+    {
+      "id": 8,
+      "image": "https://images.unsplash.com/photo-1517451330940-17507ff9a44d",
+      "price": 19.99,
+      "title": "Classic Hat"
+    },
+    {
+      "id": 9,
+      "image": "https://images.unsplash.com/photo-1520975695915-46c903eff945",
+      "price": 14.99,
+      "title": "Minimalist Bracelet"
+    },
+    {
+      "id": 10,
+      "image": "https://images.unsplash.com/photo-1612423284931-4f9ff9f6db6d",
+      "price": 27.99,
+      "title": "Summer Dress"
+    },
+    {
+      "id": 11,
+      "image": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796",
+      "price": 69.99,
+      "title": "Men’s Jacket"
+    },
+    {
+      "id": 12,
+      "image": "https://images.unsplash.com/photo-1562157873-818bc0726f93",
+      "price": 39.99,
+      "title": "Chic Handbag"
+    },
+    {
+      "id": 13,
+      "image": "https://images.unsplash.com/photo-1579931794091-0c3a85cc72c2",
+      "price": 54.99,
+      "title": "Designer Scarf"
+    },
+    {
+      "id": 14,
+      "image": "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15",
+      "price": 22.99,
+      "title": "Casual T-shirt"
+    },
+    {
+      "id": 15,
+      "image": "https://images.unsplash.com/photo-1584362917165-48e7acb41b17",
+      "price": 31.99,
+      "title": "Slim Jeans"
+    },
+    {
+      "id": 16,
+      "image": "https://images.unsplash.com/photo-1519723883133-4f1fcd24c6d9",
+      "price": 18.99,
+      "title": "Knitted Beanie"
+    },
+    {
+      "id": 17,
+      "image": "https://images.unsplash.com/photo-1591361781804-798b7c35128d",
+      "price": 45.99,
+      "title": "Casual Sneakers"
+    },
+    {
+      "id": 18,
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "price": 38.99,
+      "title": "Luxury Handbag"
+    },
+    {
+      "id": 19,
+      "image": "https://images.unsplash.com/photo-1603891058189-45fd19e07216",
+      "price": 26.99,
+      "title": "Cotton Sweatshirt"
+    },
+    {
+      "id": 20,
+      "image": "https://images.unsplash.com/photo-1617605205560-9f0535bc6fbe",
+      "price": 79.99,
+      "title": "Premium Boots"
+    }
+  ]
+}

@@ -9,9 +9,19 @@ import Account from "./src/screen/Account";
 import Entypo from "react-native-vector-icons/Entypo";
 import FontAwesome6 from "react-native-vector-icons/FontAwesome6";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import ProductDetails from "./src/screen/ProductDetails";
 
 const Tab = createBottomTabNavigator();
-
+const Stack = createNativeStackNavigator();
+const MyHomeStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="HOME" component={Home} />
+      <Stack.Screen name="PRODUCT_DETAILS" component={ProductDetails} />
+    </Stack.Navigator>
+  );
+};
 const App = () => {
   return (
     <NavigationContainer>
@@ -23,8 +33,8 @@ const App = () => {
         }}
       >
         <Tab.Screen
-          name="HOME"
-          component={Home}
+          name="HOME_STACK"
+          component={MyHomeStack}
           options={{
             tabBarIcon: ({ color, size }) => (
               <Entypo name="home" size={size} color={color} />
