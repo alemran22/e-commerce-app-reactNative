@@ -61,7 +61,7 @@ const Home = () => {
         }
         data={products}
         renderItem={({ item, index }) => (
-          <ProductCard item={item} handleLiked={handleLiked} />
+          <ProductCard item={item} handleLiked={handleLiked} key={item.id} />
         )}
         numColumns={2}
         showsVerticalScrollIndicator={false}

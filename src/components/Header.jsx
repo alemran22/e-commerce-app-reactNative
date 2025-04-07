@@ -1,12 +1,26 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { Ionicons } from "react-native-vector-icons";
+import { useNavigation } from "@react-navigation/native";
+import { TouchableOpacity } from "react-native";
+const Header = ({ isCart }) => {
+  const navigation = useNavigation();
 
-const Header = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.barIconContainer}>
-        <Image source={require("../asset/bar.png")} style={styles.barIcon} />
-      </View>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("HOME_STACK");
+        }}
+        style={styles.barIconContainer}
+      >
+        {isCart ? (
+          <Ionicons name={"chevron-back"} size={28} color={"#E96E6E"} />
+        ) : (
+          <Image source={require("../asset/bar.png")} style={styles.barIcon} />
+        )}
+      </TouchableOpacity>
+      {isCart && <Text style={styles.myCartText}>My Cart</Text>}
       <Image source={require("../asset/dp.png")} style={styles.dp} />
     </View>
   );
@@ -31,4 +45,5 @@ const styles = StyleSheet.create({
   },
   barIcon: { height: 28, width: 28 },
   dp: { height: 44, width: 44, borderRadius: 22 },
+  myCartText: { color: "black", fontSize: 24, fontWeight: "medium" },
 });
