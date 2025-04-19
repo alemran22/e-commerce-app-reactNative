@@ -3,18 +3,17 @@ import React from "react";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { TouchableOpacity } from "react-native";
 
-const image = "https://images.unsplash.com/photo-1556905055-8f358a7a47b2";
-const CartCard = () => {
+const CartCard = ({ item }) => {
   return (
     <View style={styles.container}>
-      <Image source={{ uri: image }} style={styles.image} />
+      <Image source={{ uri: item.image }} style={styles.image} />
       <View style={styles.cardContent}>
-        <Text style={styles.title}>Jacket Jeans</Text>
-        <Text style={styles.price}>$35.80</Text>
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.price}>${item.price}</Text>
         <View style={styles.colorSizeContainer}>
-          <View style={styles.circle} />
+          <View style={[styles.circle, { backgroundColor: item.color }]} />
           <View style={styles.sizeCircle}>
-            <Text style={styles.sizeText}>L</Text>
+            <Text style={styles.sizeText}>{item.size}</Text>
           </View>
         </View>
       </View>
@@ -45,7 +44,6 @@ const styles = StyleSheet.create({
     height: 32,
     width: 32,
     borderRadius: 16,
-    backgroundColor: "#7094C1",
   },
   colorSizeContainer: {
     flexDirection: "row",

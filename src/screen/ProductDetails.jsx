@@ -1,9 +1,10 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import Header from "../components/Header";
 import { Image } from "react-native";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { CartContext } from "../context/CartContext";
 
 const imageUrl =
   "https://res.cloudinary.com/dlc5c1ycl/image/upload/v170567613/vulb5bckiruhpzt2v8ec.png";
@@ -18,11 +19,18 @@ const colors = [
 ];
 
 const ProductDetails = () => {
+  const { addToCart } = useContext(CartContext);
   const route = useRoute();
   const item = route.params.item;
-
+  const navigation = useNavigation();
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
+  const handleAddToCart = (item) => {
+    item.size = selectedSize;
+    item.color = selectedColor;
+    addToCart(item);
+    navigation.navigate("CART");
+  };
   return (
     <LinearGradient colors={["#FDF0F3", "#FFFBFC"]} style={styles.container}>
       <View style={styles.headerContainer}>
@@ -40,6 +48,7 @@ const ProductDetails = () => {
         {sizes.map((size) => {
           return (
             <TouchableOpacity
+              key={size}
               onPress={() => {
                 setSelectedSize(size);
               }}
@@ -63,6 +72,7 @@ const ProductDetails = () => {
         {colors.map((color) => {
           return (
             <TouchableOpacity
+              key={color}
               onPress={() => {
                 setSelectedColor(color);
               }}
@@ -80,7 +90,12 @@ const ProductDetails = () => {
         })}
       </View>
       {/* button container */}
-      <TouchableOpacity style={styles.buttonContainer}>
+      <TouchableOpacity
+        onPress={() => {
+          handleAddToCart(item);
+        }}
+        style={styles.buttonContainer}
+      >
         <Text style={styles.buttonText}>Add to Cart</Text>
       </TouchableOpacity>
     </LinearGradient>

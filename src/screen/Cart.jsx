@@ -1,18 +1,20 @@
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import Header from "../components/Header";
 import { LinearGradient } from "expo-linear-gradient";
 import CartCard from "../components/CartCard";
 import { TouchableOpacity } from "react-native";
 import { FlatList } from "react-native";
+import { CartContext } from "../context/CartContext";
 
 const Cart = () => {
+  const { carts, totalPrice } = useContext(CartContext);
   return (
     <LinearGradient colors={["#FDF0F3", "#FFFBFC"]} style={styles.gradient}>
       <SafeAreaView style={styles.container}>
         <Header isCart={true} style={styles.headerContainer} />
         <FlatList
-          data={[1, 2, 3, 4, 5]}
+          data={carts}
           renderItem={CartCard}
           ListHeaderComponent={<></>}
           showsVerticalScrollIndicator={false}
@@ -22,7 +24,7 @@ const Cart = () => {
               <View style={styles.pricingContainer}>
                 <View style={styles.PriceAndTitle}>
                   <Text style={styles.PriceTextAndValue}>Total:</Text>
-                  <Text style={styles.PriceTextAndValue}>$119.70</Text>
+                  <Text style={styles.PriceTextAndValue}>${totalPrice}</Text>
                 </View>
                 <View style={styles.PriceAndTitle}>
                   <Text style={styles.PriceTextAndValue}>Shipping:</Text>
@@ -38,7 +40,7 @@ const Cart = () => {
                     { color: "black", fontWeight: 600 },
                   ]}
                 >
-                  $119.70
+                  ${totalPrice}
                 </Text>
               </View>
             </>

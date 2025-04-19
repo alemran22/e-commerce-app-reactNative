@@ -7,6 +7,7 @@ import Category from "../components/Category";
 import ProductCard from "../components/ProductCard";
 import productData from "../data/productData.json";
 const categories = ["Trending Now", "All", "New", "Men's", "Women's"];
+
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState("Trending Now");
   const [isLiked, setIsLiked] = useState(false);
@@ -27,12 +28,9 @@ const Home = () => {
       <Header />
 
       {/* products list */}
-      <View style={styles.productList}>
-        {/* <ProductCard />
-        <ProductCard />
-        <ProductCard /> */}
-      </View>
+      <View style={styles.productList}></View>
       <FlatList
+        keyExtractor={(item, index) => index}
         ListHeaderComponent={
           <>
             <Text style={styles.headerText}>Match Your Style</Text>
